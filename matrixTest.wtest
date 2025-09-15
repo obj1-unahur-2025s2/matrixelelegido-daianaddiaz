@@ -1,9 +1,19 @@
+import matrix.*
 
+describe "Testeamos a Matrix " {
+  test "neo es el elegido" {
+    assert.that(neo.esElElegido())
+  }
+}
 
-describe "group of tests " {
-
-  test "test 01" {
-    assert.equals(100, 50+50)
+  test "morfeo no es el elegido" {
+    assert.notThat(morfeo.esElElegido())
   }
 
-}
+  test "cambiar vitalidad de morfeo" {
+    morfeo.saltar()
+    assert.equals(7, morfeo.vitalidad())
+  }
+  
+
+
