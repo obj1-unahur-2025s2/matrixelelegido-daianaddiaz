@@ -46,11 +46,13 @@ object nave {
     }
 
     method naveChoca() {
+        pasajeros.forEach({p => p.saltar()})
         pasajeros.clear()
     }
 
-    method naveAcelera() {
-        pasajeros.map({p => p.saltar()} )
+    method pasajerosQueNoSonElegidos() { return pasajeros.filter({p => not p.esElElegido()})}
+    method naveAcelerar() {
+        self.pasajerosQueNoSonElegidos().forEach({p => p.saltar()}) 
     }
 }
 
