@@ -21,7 +21,7 @@ object morfeo {
 
 object trinity {
     method vitalidad() {return 0}
-    method saltar() {return 0}
+    method saltar() {}
     method esElElegido() {return false}
 }
 
@@ -30,15 +30,19 @@ object nave {
     method agregarPasajeros(unPasajero) {
         pasajeros.add(unPasajero)
     }
+    method cantidadPasajeros() {
+        return pasajeros.size()
+    }
     method pasajeroConMayorVitalidad() {
-        pasajeros.filter { p => }
+        pasajeros.max({ p => p.vitalida()})
     }
     method esEquilibrada() {
-
+        pasajeros.map({p => p.vitalidad() * 2}).all(
+            { v => v > self.pasajeroConMayorVitalidad().vitalidad()})
     }
 
     method estaElElegido() {
-        pasajeros.filter {p => p.esElElegido()}
+        pasajeros.any({p => p.esElElegido()})
     }
 
     method naveChoca() {
@@ -49,6 +53,8 @@ object nave {
         pasajeros.map({p => p.saltar()} )
     }
 }
+
+
 
 
 
